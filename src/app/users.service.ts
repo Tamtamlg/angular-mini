@@ -5,10 +5,12 @@ import 'rxjs/Rx'
 @Injectable()
 export class UsersService {
 
+    size = 8;
+
     constructor(private http: Http) { }
 
     getUsers() {
-        return this.http.get('https://randomuser.me/api/?inc=gender,name,picture,location&results=8&nat=gb')
+        return this.http.get('https://randomuser.me/api/?inc=gender,name,picture,location&results=' + this.size + '&nat=gb')
             .map(response => response.json())
             .map(response => response.results)
             .map(users => {
@@ -21,6 +23,10 @@ export class UsersService {
                 })
             })
     }
+
+changeSize(newSize) {
+    this.size = newSize;
+}
 
     users = [
         { name: 'user 1' },
