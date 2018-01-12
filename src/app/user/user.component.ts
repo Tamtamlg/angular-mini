@@ -9,8 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UserComponent implements OnInit {
 
     @Input() user;
+    isMarked = false;
 
     constructor() { }
 
     ngOnInit() { }
+
+    onClick() {
+        this.isMarked = true;
+    }
 }

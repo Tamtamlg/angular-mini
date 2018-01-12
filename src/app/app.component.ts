@@ -9,7 +9,8 @@ import { UsersService } from './users.service';
 })
 export class AppComponent {
 
-  users = []
+  users = [];
+  searchStr = '';
 
   constructor(private usersServise: UsersService) { }
 
